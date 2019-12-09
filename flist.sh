@@ -93,7 +93,7 @@ nginx_file='/etc/nginx/conf.d/taiga.conf'
 /bin/cat <<EOF > $nginx_file
 
 server {
-    listen 4321 default_server;
+    listen 80 default_server;
     server_name _;
 
     large_client_header_buffers 4 32k;
