@@ -63,7 +63,7 @@ EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 # GITHUB_API_CLIENT_SECRET = "yourgithubclientsecret"
 EOF
 
-cd ~
+cd /home/taiga
 git clone https://github.com/threefoldtech/Threefold-Circles-front-dist.git taiga-front-dist
 cd taiga-front-dist
 git checkout production
@@ -74,10 +74,10 @@ cp ~/taiga-front-dist/dist/conf.example.json ~/taiga-front-dist/dist/conf.json
 cd /home/taiga
 git clone https://github.com/threefoldtech/Threefold-Circles-events.git taiga-events
 su taiga \
-&& cd taiga-events
-&& curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-&& sudo apt-get install -y nodejs
-&& npm install
+&& cd taiga-events \
+&& curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - \
+&& sudo apt-get install -y nodejs \
+&& npm install \
 && cp config.example.json config.json
 
 # configure nginx
