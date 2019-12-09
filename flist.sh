@@ -67,7 +67,7 @@ cd /home/taiga
 git clone https://github.com/threefoldtech/Threefold-Circles-front-dist.git taiga-front-dist
 cd taiga-front-dist
 git checkout production
-cp ~/taiga-front-dist/dist/conf.example.json ~/taiga-front-dist/dist/conf.json
+cp /home/taiga/taiga-front-dist/dist/conf.example.json /home/taiga/taiga-front-dist/dist/conf.json
 
 # Events installation
 
@@ -83,7 +83,7 @@ su taiga \
 # configure nginx
 
 rm /etc/nginx/sites-enabled/default
-mkdir -p ~/logs
+mkdir -p /home/taiga/logs
 
 # below is setup of MySQL master node
 nginx_file='/etc/nginx/conf.d/taiga.conf'
@@ -97,12 +97,12 @@ server {
     client_max_body_size 50M;
     charset utf-8;
 
-    access_log /taiga/logs/nginx.access.log;
-    error_log /taiga/logs/nginx.error.log;
+    access_log /home/taiga/logs/nginx.access.log;
+    error_log /home/taiga/nginx.error.log;
 
     # Frontend
     location / {
-        root /taiga/taiga-front-dist/dist/;
+        root /home/taiga/taiga-front-dist/dist/;
         try_files $uri $uri/ /index.html;
     }
 
@@ -130,12 +130,12 @@ server {
 
     # Static files
     location /static {
-        alias /taiga/taiga-back/static;
+        alias /home/taiga/taiga-back/static;
     }
 
     # Media files
     location /media {
-        alias /taiga/taiga-back/media;
+        alias /home/taiga/taiga/taiga-back/media;
     }
 
     # Events
