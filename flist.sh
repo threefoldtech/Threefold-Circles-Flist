@@ -23,7 +23,9 @@ cd /home/taiga
 git clone https://github.com/threefoldtech/Threefold-Circles.git taiga-back
 cd taiga-back
 git checkout production
-mkvirtualenv -p /usr/bin/python3 taiga
+echo 'user now is'
+id
+virtualenv -p /usr/bin/python3 taiga
 pip install -r requirements.txt
 
 local_file='/home/taiga/taiga-back/settings/local.py'
