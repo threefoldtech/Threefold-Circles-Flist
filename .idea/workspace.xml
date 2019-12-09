@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3bd62b57-2047-44fe-9465-7f0a2d8bd076" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/flist.sh" beforeDir="false" afterPath="$PROJECT_DIR$/flist.sh" afterDir="false" />
-    </list>
+    <list default="true" id="3bd62b57-2047-44fe-9465-7f0a2d8bd076" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

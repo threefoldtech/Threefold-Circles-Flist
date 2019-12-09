@@ -85,7 +85,6 @@ su taiga \
 rm /etc/nginx/sites-enabled/default
 mkdir -p /home/taiga/logs
 
-# below is setup of MySQL master node
 nginx_file='/etc/nginx/conf.d/taiga.conf'
 /bin/cat <<EOF > $nginx_file
 server {
@@ -97,7 +96,7 @@ server {
     charset utf-8;
 
     access_log /home/taiga/logs/nginx.access.log;
-    error_log /home/taiga/nginx.error.log;
+    error_log /home/taiga/logs/nginx.error.log;
 
     # Frontend
     location / {
@@ -134,7 +133,7 @@ server {
 
     # Media files
     location /media {
-        alias /home/taiga/taiga/taiga-back/media;
+        alias /home/taiga/taiga-back/media;
     }
 
     # Events
@@ -146,12 +145,13 @@ server {
         proxy_connect_timeout 7d;
         proxy_send_timeout 7d;
         proxy_read_timeout 7d;
-    }
+	}
 }
+
 EOF
 
+cat -n $nginx_file
 sudo nginx -t
-
 mkdir -p /opt/bin
 prepare_taiga_file='/opt/bin/prepare_taiga.sh'
 /bin/cat <<EOF > $prepare_taiga_file
