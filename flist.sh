@@ -88,7 +88,6 @@ mkdir -p /home/taiga/logs
 # below is setup of MySQL master node
 nginx_file='/etc/nginx/conf.d/taiga.conf'
 /bin/cat <<EOF > $nginx_file
-
 server {
     listen 80 default_server;
     server_name _;
@@ -151,7 +150,7 @@ server {
 }
 EOF
 
-nginx -t
+sudo nginx -t
 
 mkdir -p /opt/bin
 prepare_taiga_file='/opt/bin/prepare_taiga.sh'
