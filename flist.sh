@@ -17,8 +17,6 @@ apt-get install -y sudo openssh-server
 adduser taiga
 adduser taiga sudo
 passwd -d taiga
-sudo -u postgres createuser taiga
-sudo -u postgres createdb taiga -O taiga --encoding='utf-8' --locale=en_US.utf8 --template=template0
 
 su - taiga
 cd /home/taiga
