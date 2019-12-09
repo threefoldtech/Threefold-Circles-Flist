@@ -18,11 +18,10 @@ protected = true
 name = "/usr/sbin/sshd"
 args = ["-e", "-D"]
 
-
 [startup.setup]
 name = "bash"
 running_delay = -1
-after = ["db_create"]
+after = ["sshd"]
 
 [startup.setup.args]
 script = """
@@ -77,3 +76,20 @@ sed -i "s/mysecret/$SECRET_KEY/g" /home/taiga/taiga-events/config.json
 
 # start startup script and start it
 """
+
+[startup.taigaBack]
+name = "core.system"
+after = ["setup"]
+#protected = true
+
+[startup.taigaBack.args]
+name = "/taiga/taiga-back/taiga/bin/gunicorn"
+args = ["--workers", "4", "--timeout","60","-b","127.0.0.1:8001","taiga.wsgi"]
+
+[startup.taigaEvents]
+name = "core.system"
+after = ["taigaBack"]
+
+[startup.taigaEvents.args]
+name = "/home/taiga/taiga-events/node_modules/coffeescript/bin/coffee"
+args = ["/home/taiga/taiga-events/index.coffee"]
