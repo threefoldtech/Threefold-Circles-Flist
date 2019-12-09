@@ -9,12 +9,11 @@ apt-get install -y libfreetype6-dev zlib1g-dev libzmq3-dev libgdbm-dev libncurse
 apt-get install -y automake libtool curl git tmux gettext
 apt-get install -y nginx
 apt-get install -y rabbitmq-server redis-server
-apt-get install -y postgresql-9.5 postgresql-contrib-9.5
-apt-get install -y postgresql-doc-9.5 postgresql-server-dev-9.5
+apt-get install -y postgresql
 apt-get install -y python3 python3-pip python3-dev virtualenvwrapper
 apt-get install -y libxml2-dev libxslt-dev
 apt-get install -y libssl-dev libffi-dev
-apt-get install -y sudo
+apt-get install -y sudo openssh-server
 adduser taiga
 adduser taiga sudo
 passwd -d taiga
