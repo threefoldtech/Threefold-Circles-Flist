@@ -18,15 +18,12 @@ adduser taiga
 adduser taiga sudo
 passwd -d taiga
 
-su - taiga
 cd /home/taiga
 git clone https://github.com/threefoldtech/Threefold-Circles.git taiga-back
 cd taiga-back
 git checkout production
-echo 'user now is'
-id
-virtualenv -p /usr/bin/python3 taiga
-pip install -r requirements.txt
+
+su taiga && cd /home/taiga && sudo virtualenv -p /usr/bin/python3 taiga
 
 local_file='/home/taiga/taiga-back/settings/local.py'
 /bin/cat <<EOF > $local_file
@@ -74,13 +71,14 @@ cp ~/taiga-front-dist/dist/conf.example.json ~/taiga-front-dist/dist/conf.json
 
 # Events installation
 
-cd ~
+cd /home/taiga
 git clone https://github.com/threefoldtech/Threefold-Circles-events.git taiga-events
-cd taiga-events
-curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-sudo apt-get install -y nodejs
-npm install
-cp config.example.json config.json
+su taiga \
+&& cd taiga-events
+&& curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+&& sudo apt-get install -y nodejs
+&& npm install
+&& cp config.example.json config.json
 
 # configure nginx
 
