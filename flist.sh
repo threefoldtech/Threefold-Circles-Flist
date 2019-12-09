@@ -13,7 +13,7 @@ apt-get install -y postgresql
 apt-get install -y python3 python3-pip python3-dev virtualenvwrapper
 apt-get install -y libxml2-dev libxslt-dev
 apt-get install -y libssl-dev libffi-dev
-apt-get install -y sudo openssh-server virtualenv
+apt-get install -y sudo openssh-server virtualenv python-pip
 adduser taiga
 adduser taiga sudo
 passwd -d taiga
@@ -67,6 +67,7 @@ cd /home/taiga
 git clone https://github.com/threefoldtech/Threefold-Circles-front-dist.git taiga-front-dist
 cd taiga-front-dist
 git checkout production
+git pull
 cp /home/taiga/taiga-front-dist/dist/conf.example.json /home/taiga/taiga-front-dist/dist/conf.json
 
 # Events installation
@@ -75,6 +76,8 @@ cd /home/taiga
 git clone https://github.com/threefoldtech/Threefold-Circles-events.git taiga-events
 su taiga \
 && cd taiga-events \
+&& git checkout master \
+&& git pull \
 && curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - \
 && sudo apt-get install -y nodejs \
 && npm install \
@@ -97,11 +100,12 @@ prepare_taiga_file='/opt/bin/prepare_taiga.sh'
 cd /home/taiga/taiga-back
 virtualenv -p /usr/bin/python3 taiga
 pip3 install -r requirements.txt
-/home/taiga/taiga-back/taiga/bin/python3 manage.py migrate --noinput
-/home/taiga/taiga-back/taiga/bin/python3 manage.py loaddata initial_user
-/home/taiga/taiga-back/taiga/bin/python3 manage.py loaddata initial_project_templates
-/home/taiga/taiga-back/taiga/bin/python3 manage.py compilemessages
-/home/taiga/taiga-back/taiga/bin/python3 manage.py collectstatic --noinput
+cd /home/taiga/taiga-back/taiga/bin/
+python3 ../../manage.py migrate --noinput
+python3 ../../manage.py loaddata initial_user
+python3 ../../manage.py loaddata initial_project_templates
+python3 ../../manage.py compilemessages
+python3 ../../manage.py collectstatic --noinput
 
 EOF
 
