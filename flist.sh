@@ -95,7 +95,8 @@ prepare_taiga_file='/opt/bin/prepare_taiga.sh'
 
 # Install dependencies and populate database
 cd /home/taiga/taiga-back
-/home/taiga/taiga-back/taiga/bin/pip3 install -r requirements.txt
+virtualenv -p /usr/bin/python3 taiga
+pip3 install -r requirements.txt
 /home/taiga/taiga-back/taiga/bin/python3 manage.py migrate --noinput
 /home/taiga/taiga-back/taiga/bin/python3 manage.py loaddata initial_user
 /home/taiga/taiga-back/taiga/bin/python3 manage.py loaddata initial_project_templates
