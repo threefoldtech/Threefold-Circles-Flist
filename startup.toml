@@ -76,7 +76,6 @@ ls -ld /home/taiga/logs
 service nginx start
 
 # start startup script and start it
-cd /home/taiga/taiga-back
 """
 
 [startup.taigaBack]
@@ -85,8 +84,7 @@ after = ["setup"]
 #protected = true
 
 [startup.taigaBack.args.env]
-PWD="/home/taiga/taiga-back"
-PATH="$PATH:${PWD}:/home/taiga/taiga-back"
+dir="/home/taiga/taiga-back"
 
 [startup.taigaBack.args]
 name = "/home/taiga/taiga-back/taiga/bin/gunicorn"
