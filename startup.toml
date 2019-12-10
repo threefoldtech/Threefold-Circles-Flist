@@ -47,7 +47,6 @@ chown -R postgres /var/run/postgresql
 chown -R postgres.postgres /etc/postgresql
 
 service postgresql start
-service nginx start
 sudo -u postgres createuser taiga
 sudo -u postgres createdb taiga -O taiga --encoding='utf-8' --locale=en_US.utf8 --template=template0
 
@@ -72,6 +71,9 @@ sed -i 's/localhost:8000/$HOST_IP:4321/g' /home/taiga/taiga-front-dist/dist/conf
 sed -i 's/guest:guest/taiga:$SECRET_KEY/g' /home/taiga/taiga-events/config.json
 sed -i 's/mysecret/$SECRET_KEY/g' /home/taiga/taiga-events/config.json
 
+echo 'check the log path is exist or not '
+ls -ld /home/taiga/logs
+service nginx start
 
 # start startup script and start it
 """
@@ -82,7 +84,7 @@ after = ["setup"]
 #protected = true
 
 [startup.taigaBack.args]
-name = "/taiga/taiga-back/taiga/bin/gunicorn"
+name = "/home/taiga/taiga-back/taiga/bin/gunicorn"
 args = ["--workers", "4", "--timeout","60","-b","127.0.0.1:8001","taiga.wsgi"]
 
 [startup.taigaEvents]

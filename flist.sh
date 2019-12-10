@@ -98,15 +98,12 @@ prepare_taiga_file='/opt/bin/prepare_taiga.sh'
 set -x
 # Install dependencies and populate database
 cd /home/taiga/taiga-back
-virtualenv -p /usr/bin/python3 taiga
-pip3 install -r requirements.txt
-cd /home/taiga/taiga-back/taiga/bin/
-python3 ../../manage.py migrate --noinput
-python3 ../../manage.py loaddata initial_user
-python3 ../../manage.py loaddata initial_project_templates
-python3 ../../manage.py compilemessages
-python3 ../../manage.py collectstatic --noinput
-
+/home/taiga/taiga-back/taiga/bin/pip3 install -r requirements.txt
+/home/taiga/taiga-back/taiga/bin/python3 manage.py migrate --noinput
+/home/taiga/taiga-back/taiga/bin/python3 manage.py loaddata initial_user
+/home/taiga/taiga-back/taiga/bin/python3 manage.py loaddata initial_project_templates
+/home/taiga/taiga-back/taiga/bin/python3 manage.py compilemessages
+/home/taiga/taiga-back/taiga/bin/python3 manage.py collectstatic --noinput
 EOF
 
 tar -cpzf "/root/archives/circles.tar.gz" --exclude dev --exclude sys --exclude proc --exclude /root/archives/ /
