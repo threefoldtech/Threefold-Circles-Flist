@@ -84,7 +84,8 @@ after = ["setup"]
 #protected = true
 
 [startup.taigaBack.args.env]
-dir="/home/taiga/taiga-back"
+dir = "/home/taiga/taiga-back"
+user = "taiga"
 
 [startup.taigaBack.args]
 name = "/home/taiga/taiga-back/taiga/bin/gunicorn"
