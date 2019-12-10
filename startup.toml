@@ -94,4 +94,5 @@ after = ["taigaBack"]
 
 [startup.taigaEvents.args]
 name = "/home/taiga/taiga-events/node_modules/coffeescript/bin/coffee"
+dir = "/home/taiga/taiga-events"
 args = ["/home/taiga/taiga-events/index.coffee"]
