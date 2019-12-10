@@ -84,6 +84,10 @@ name = "core.system"
 after = ["setup"]
 #protected = true
 
+[startup.taigaBack.args.env]
+PWD="/home/taiga/taiga-back"
+PATH="$PATH:${PWD}:/home/taiga/taiga-back"
+
 [startup.taigaBack.args]
 name = "/home/taiga/taiga-back/taiga/bin/gunicorn"
 args = ["--workers", "4", "--timeout","60","-b","127.0.0.1:8001","taiga.wsgi"]
