@@ -82,21 +82,24 @@ service nginx start
 """
 
 [startup.taigaBack]
-name = "core.system"
+name = "bash"
 after = ["setup"]
 #protected = true
 
 [startup.taigaBack.args]
-name = "sudo -u taiga /home/taiga/taiga-back/taiga/bin/gunicorn"
-dir = "/home/taiga/taiga-back"
-args = ["--workers", "4", "--timeout","60","-b","127.0.0.1:8001","taiga.wsgi"]
+script = """
+set -x
+su taiga -c 'cd /home/taiga/taiga-back ; /home/taiga/taiga-back/taiga/bin/gunicorn --workers 4 --timeout 60 -b 127.0.0.1:8001 taiga.wsgi'
+"""
 
 [startup.taigaEvents]
-name = "core.system"
+name = "bash"
 after = ["setup"]
 #protected = true
 
 [startup.taigaEvents.args]
-name = "sudo -u taiga /home/taiga/taiga-events/node_modules/coffeescript/bin/coffee"
-dir = "/home/taiga/taiga-events"
-args = ["/home/taiga/taiga-events/index.coffee"]
+
+script = """
+set -x
+su taiga -c 'cd /home/taiga/taiga-events ; /home/taiga/taiga-events/node_modules/coffeescript/bin/coffee /home/taiga/taiga-events/index.coffee'
+"""
