@@ -92,23 +92,11 @@ mkdir -p /home/taiga/logs
 nginx_file='/etc/nginx/conf.d/taiga.conf'
 wget https://raw.githubusercontent.com/threefoldtech/Threefold-Circles-Flist/master/nginx_conf -O $nginx_file
 wget https://raw.githubusercontent.com/threefoldtech/Threefold-Circles-Flist/master/startup.toml -O /.startup.toml
-
 sudo nginx -t
 mkdir -p /opt/bin
 prepare_taiga_file='/opt/bin/prepare_taiga.sh'
-/bin/cat <<EOF > $prepare_taiga_file
-set -x
-# Install dependencies and populate database
-cd /home/taiga/taiga-back
-virtualenv -p /usr/bin/python3 taiga
-/home/taiga/taiga-back/taiga/bin/pip3 install -r requirements.txt
-/home/taiga/taiga-back/taiga/bin/python3 manage.py migrate --noinput
-/home/taiga/taiga-back/taiga/bin/python3 manage.py loaddata initial_user
-/home/taiga/taiga-back/taiga/bin/python3 manage.py loaddata initial_project_templates
-/home/taiga/taiga-back/taiga/bin/python3 manage.py compilemessages
-/home/taiga/taiga-back/taiga/bin/python3 manage.py collectstatic --noinput
+wget https://raw.githubusercontent.com/threefoldtech/Threefold-Circles-Flist/master/prepare_taiga.sh -O $prepare_taiga_file
 
-EOF
 
 tar -cpzf "/root/archives/circles.tar.gz" --exclude dev --exclude sys --exclude proc --exclude /root/archives/ /
 
