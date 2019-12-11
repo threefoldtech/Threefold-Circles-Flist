@@ -13,7 +13,7 @@ apt-get install -y postgresql
 apt-get install -y python3 python3-pip python3-dev virtualenvwrapper
 apt-get install -y libxml2-dev libxslt-dev
 apt-get install -y libssl-dev libffi-dev
-apt-get install -y sudo openssh-server virtualenv python-pip
+apt-get install -y sudo openssh-server virtualenv python-pip vim
 adduser taiga
 adduser taiga sudo
 passwd -d taiga

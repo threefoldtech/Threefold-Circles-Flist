@@ -25,6 +25,7 @@ after = ["sshd"]
 
 [startup.setup.args]
 script = """
+set -x
 sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
     locale-gen
 export HOME=/root
@@ -34,7 +35,6 @@ export LC_ALL=en_US.UTF-8
 echo 'remove a record was added by zos that make our server slow, below is resolv.conf file contents'
 cat /etc/resolv.conf
 sed -i '/^nameserver 10./d' /etc/resolv.conf
-
 locale-gen en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 chown -R postgres.postgres /var/lib/postgresql/
@@ -64,15 +64,18 @@ service rabbitmq-server start
 rabbitmqctl add_user taiga $SECRET_KEY
 rabbitmqctl add_vhost taiga
 rabbitmqctl set_permissions -p taiga taiga '.*' '.*' '.*'
+
+# edit backend
+sed -i \"s|http://localhost/static/|http://$HOST_IP:$HTTP_PORT/static/|g\"  /home/taiga/taiga-back/settings/local.py
+sed -i \"s|http://localhost/media/|http://$HOST_IP:$HTTP_PORT/media/|g\" /home/taiga/taiga-back/settings/local.py
+
 # Edit conf files for frontend
-sed -i 's/localhost:8000/$HOST_IP:4321/g' /home/taiga/taiga-front-dist/dist/conf.json
-
+sed -i \"s/localhost:8000/$HOST_IP:$HTTP_PORT/g\" /home/taiga/taiga-front-dist/dist/conf.json
+sed -i \"s/listen 80 default_server/listen $HTTP_PORT default_server/g\" /etc/nginx/conf.d/taiga.conf
 # Edit config.json for events
-sed -i 's/guest:guest/taiga:$SECRET_KEY/g' /home/taiga/taiga-events/config.json
-sed -i 's/mysecret/$SECRET_KEY/g' /home/taiga/taiga-events/config.json
+sed -i \"s/guest:guest/taiga:$SECRET_KEY/g\" /home/taiga/taiga-events/config.json
+sed -i \"s/mysecret/$SECRET_KEY/g\" /home/taiga/taiga-events/config.json
 
-echo 'check the log path is exist or not '
-ls -ld /home/taiga/logs
 service nginx start
 
 # start startup script and start it
