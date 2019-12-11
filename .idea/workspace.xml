@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3bd62b57-2047-44fe-9465-7f0a2d8bd076" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/taiga-front-dist.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flist.sh" beforeDir="false" afterPath="$PROJECT_DIR$/flist.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/startup.toml" beforeDir="false" afterPath="$PROJECT_DIR$/startup.toml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,8 +30,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/startup.toml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="84" selection-start-line="84" selection-end-line="105" selection-end-column="3" />
+            <state relative-caret-position="402">
+              <caret line="79" column="2" selection-start-line="79" selection-start-column="2" selection-end-line="79" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/taiga-front-dist.conf">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="51" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -36,8 +48,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/flist.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="15" column="64" selection-start-line="15" selection-start-column="64" selection-end-line="15" selection-end-column="64" />
+            <state relative-caret-position="150">
+              <caret line="72" column="88" lean-forward="true" selection-start-line="72" selection-start-column="88" selection-end-line="72" selection-end-column="88" />
             </state>
           </provider>
         </entry>
@@ -65,8 +77,9 @@
       <find>pip install</find>
       <find>/taiga/taiga-back/</find>
       <find>local.py</find>
-      <find>chown -R rabbitmq:rabbitmq /etc/rabbitmq</find>
       <find>home/taiga/taiga-back/taiga/bin/python3 manage.py collectstatic --noinput</find>
+      <find>chown -R rabbitmq:rabbitmq /etc/rabbitmq</find>
+      <find>circles.threefold.me/api</find>
     </findStrings>
     <replaceStrings>
       <replace>$PROJECT_DIR$/../../taiga/taiga-back/</replace>
@@ -79,6 +92,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/nginx_conf" />
+        <option value="$PROJECT_DIR$/taiga-front-dist.conf" />
         <option value="$PROJECT_DIR$/flist.sh" />
         <option value="$PROJECT_DIR$/startup.toml" />
       </list>
@@ -182,15 +196,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/flist.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="15" column="64" selection-start-line="15" selection-start-column="64" selection-end-line="15" selection-end-column="64" />
+        <state relative-caret-position="150">
+          <caret line="72" column="88" lean-forward="true" selection-start-line="72" selection-start-column="88" selection-end-line="72" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taiga-front-dist.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="51" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/startup.toml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="84" selection-start-line="84" selection-end-line="105" selection-end-column="3" />
+        <state relative-caret-position="402">
+          <caret line="79" column="2" selection-start-line="79" selection-start-column="2" selection-end-line="79" selection-end-column="2" />
         </state>
       </provider>
     </entry>

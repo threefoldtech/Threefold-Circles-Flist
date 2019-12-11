@@ -68,7 +68,9 @@ git clone https://github.com/threefoldtech/Threefold-Circles-front-dist.git taig
 cd taiga-front-dist
 git checkout production
 git pull
-cp /home/taiga/taiga-front-dist/dist/conf.example.json /home/taiga/taiga-front-dist/dist/conf.json
+
+taiga_front_conf = "/home/taiga/taiga-front-dist/dist/conf.json"
+wget https://raw.githubusercontent.com/threefoldtech/Threefold-Circles-Flist/master/taiga-front-dist.conf -O $taiga_front_conf
 
 # Events installation
 
