@@ -81,7 +81,7 @@ service nginx start
 [startup.taigaBack]
 name = "core.system"
 after = ["setup"]
-#protected = true
+protected = true
 
 [startup.taigaBack.args]
 name = "/home/taiga/taiga-back/taiga/bin/gunicorn"
@@ -90,7 +90,8 @@ args = ["--workers", "4", "--timeout","60","-b","127.0.0.1:8001","taiga.wsgi"]
 
 [startup.taigaEvents]
 name = "core.system"
-#after = ["taigaBack"]
+after = ["setup"]
+protected = true
 
 [startup.taigaEvents.args]
 name = "/home/taiga/taiga-events/node_modules/coffeescript/bin/coffee"
