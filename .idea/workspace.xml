@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3bd62b57-2047-44fe-9465-7f0a2d8bd076" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/startup.toml" beforeDir="false" afterPath="$PROJECT_DIR$/startup.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepare_taiga.sh" beforeDir="false" afterPath="$PROJECT_DIR$/prepare_taiga.sh" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,7 +27,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/startup.toml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="642">
+            <state relative-caret-position="372">
               <caret line="66" selection-start-line="66" selection-end-line="66" />
             </state>
           </provider>
@@ -42,11 +42,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/flist.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="72" column="106" lean-forward="true" selection-start-line="72" selection-end-line="72" selection-end-column="106" />
+            <state relative-caret-position="1227">
+              <caret line="99" lean-forward="true" selection-start-line="99" selection-end-line="99" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/prepare_taiga.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="68" lean-forward="true" selection-start-line="18" selection-start-column="68" selection-end-line="18" selection-end-column="68" />
             </state>
           </provider>
         </entry>
@@ -75,9 +84,10 @@
       <find>/taiga/taiga-back/</find>
       <find>local.py</find>
       <find>home/taiga/taiga-back/taiga/bin/python3 manage.py collectstatic --noinput</find>
-      <find>aiga_front_conf =</find>
       <find>circles.threefold.me/api</find>
+      <find>aiga_front_conf =</find>
       <find>chown -R rabbitmq:rabbitmq /etc/rabbitmq</find>
+      <find>\&quot;</find>
     </findStrings>
     <replaceStrings>
       <replace>$PROJECT_DIR$/../../taiga/taiga-back/</replace>
@@ -93,6 +103,7 @@
         <option value="$PROJECT_DIR$/taiga-front-dist.conf" />
         <option value="$PROJECT_DIR$/flist.sh" />
         <option value="$PROJECT_DIR$/startup.toml" />
+        <option value="$PROJECT_DIR$/prepare_taiga.sh" />
       </list>
     </option>
   </component>
@@ -199,17 +210,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/flist.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1227">
+          <caret line="99" lean-forward="true" selection-start-line="99" selection-end-line="99" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/startup.toml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="642">
+        <state relative-caret-position="372">
           <caret line="66" selection-start-line="66" selection-end-line="66" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/flist.sh">
+    <entry file="file://$PROJECT_DIR$/prepare_taiga.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="72" column="106" lean-forward="true" selection-start-line="72" selection-end-line="72" selection-end-column="106" />
+        <state relative-caret-position="270">
+          <caret line="18" column="68" lean-forward="true" selection-start-line="18" selection-start-column="68" selection-end-line="18" selection-end-column="68" />
         </state>
       </provider>
     </entry>

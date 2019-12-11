@@ -16,14 +16,13 @@ sed -i "s|http://localhost/media/|http://$HOST_IP:$HTTP_PORT/media/|g" /home/tai
 # Edit conf files for frontend
 sed -i "s|circles.threefold.me|$HOST_IP:$HTTP_PORT|g" /home/taiga/taiga-front-dist/dist/conf.json
 
-if [ "$HTTPS_FLAG" = "True" ] || [ "$HTTPS_FLAG" = "true" ] ; then
+if [ "$HTTPS_FLAG" == "True" ] || [ "$HTTPS_FLAG" == "true" ] ; then
     sed -i "s|circles.threefold.me|$HOST_IP:$HTTP_PORT|g" /home/taiga/taiga-front-dist/dist/conf.json
 else
     sed -i "s|https://circles.threefold.me|http://$HOST_IP:$HTTP_PORT|g" /home/taiga/taiga-front-dist/dist/conf.json
     sed -i "s|wss://circles.threefold.me|ws://$HOST_IP:$HTTP_PORT|g" /home/taiga/taiga-front-dist/dist/conf.json
 fi
 
-/home/taiga/taiga-front-dist/dist/conf.json
 sed -i "s/listen 80 default_server/listen $HTTP_PORT default_server/g" /etc/nginx/conf.d/taiga.conf
 
 
