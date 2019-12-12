@@ -56,6 +56,8 @@ cd /home/taiga/taiga-back
 sudo chmod +x /opt/bin/prepare_taiga.sh
 su taiga -c 'bash /opt/bin/prepare_taiga.sh'
 
+sed -i \"s/listen 80 default_server/listen $HTTP_PORT default_server/g\" /etc/nginx/conf.d/taiga.conf
+
 # Start rabbitmq-server and create user+vhost
 chown -R rabbitmq:rabbitmq /etc/rabbitmq
 chown -R rabbitmq:rabbitmq /var/lib/rabbitmq/
@@ -95,7 +97,7 @@ su taiga -c 'cd /home/taiga/taiga-events ; /home/taiga/taiga-events/node_modules
 
 [startup.s3Backup]
 name = "bash"
-after = ["taigaBack"]
+after = ["setup"]
 recurring_period=7200
 
 [startup.s3Backup.args]

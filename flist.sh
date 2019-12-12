@@ -13,7 +13,7 @@ apt-get install -y postgresql
 apt-get install -y python3 python3-pip python3-dev virtualenvwrapper
 apt-get install -y libxml2-dev libxslt-dev
 apt-get install -y libssl-dev libffi-dev
-apt-get install -y sudo openssh-server virtualenv python-pip vim golang-go
+apt-get install -y sudo openssh-server virtualenv python-pip vim golang-go zip
 # install latest restic
 git clone https://github.com/restic/restic
 cd restic
@@ -21,7 +21,7 @@ go run build.go
 cp -p restic /usr/bin/restic
 rm -rf restic
 
-adduser taiga
+adduser taiga/etc/nginx/conf.d/taiga.conf
 adduser taiga sudo
 passwd -d taiga
 
@@ -97,12 +97,12 @@ su taiga \
 rm /etc/nginx/sites-enabled/default
 mkdir -p /home/taiga/logs
 nginx_file='/etc/nginx/conf.d/taiga.conf'
-wget https://raw.githubusercontent.com/threefoldtech/Threefold-Circles-Flist/master/nginx_conf -O $nginx_file
+wget https://raw.githubusercontent.com/threefoldtech/Threefold-Circles-Flist/master/nginx_conf -O ${nginx_file}
 wget https://raw.githubusercontent.com/threefoldtech/Threefold-Circles-Flist/master/startup.toml -O /.startup.toml
 sudo nginx -t
 mkdir -p /opt/bin
 prepare_taiga_file='/opt/bin/prepare_taiga.sh'
-wget https://raw.githubusercontent.com/threefoldtech/Threefold-Circles-Flist/master/prepare_taiga.sh -O $prepare_taiga_file
+wget https://raw.githubusercontent.com/threefoldtech/Threefold-Circles-Flist/master/prepare_taiga.sh -O ${prepare_taiga_file}
 
 
 tar -cpzf "/root/archives/circles.tar.gz" --exclude dev --exclude sys --exclude proc --exclude /root/archives/ /
