@@ -100,8 +100,8 @@ recurring_period=7200
 
 [startup.s3Backup.args]
 script = """
-bkp_directory="/home/taiga/taiga-backup"
-media_directory="/home/taiga/taiga-back/media"
+bkp_directory='/home/taiga/taiga-backup'
+media_directory='/home/taiga/taiga-back/media'
 date=`date +%d%m%y%H%M`
 
 #Database backup
