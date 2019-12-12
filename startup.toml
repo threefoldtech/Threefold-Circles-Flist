@@ -103,6 +103,9 @@ script = """
 set -x
 bkp_directory='/home/taiga/taiga-backup'
 media_directory='/home/taiga/taiga-back/media'
+[ -d $bkp_directory ] || mkdir $bkp_directory
+[ -d $media_directory ] || mkdir $media_directory
+
 date=`date +%d%m%y%H%M`
 
 #Database backup
