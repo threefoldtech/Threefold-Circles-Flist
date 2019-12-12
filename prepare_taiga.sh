@@ -5,8 +5,10 @@ echo "checking env variables was set correctly "
 
 for var in SECRET_KEY EMAIL_HOST EMAIL_HOST_USER EMAIL_HOST_PASSWORD HOST_IP HTTP_PORT
     do
-        if [[ -z "$var" ]] ;then
-            echo "$var was not set, Please set it in creating your container"
+    value=$var
+    echo $value
+        if [[ -z "$value" ]] ;then
+            echo "$value was not set, Please set it in creating your container"
             exit 1
         fi
     done
