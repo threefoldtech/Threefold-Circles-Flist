@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3bd62b57-2047-44fe-9465-7f0a2d8bd076" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/flist.sh" beforeDir="false" afterPath="$PROJECT_DIR$/flist.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prepare_taiga.sh" beforeDir="false" afterPath="$PROJECT_DIR$/prepare_taiga.sh" afterDir="false" />
-    </list>
+    <list default="true" id="3bd62b57-2047-44fe-9465-7f0a2d8bd076" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,12 +19,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="md" value="250" />
-          <entry key="sh" value="132" />
+          <entry key="sh" value="143" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Bash" value="132" />
+          <entry key="Bash" value="143" />
           <entry key="Markdown" value="250" />
         </counts>
       </usages-collector>
@@ -65,7 +62,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/flist.sh">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="110">
@@ -74,11 +71,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/prepare_taiga.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="69" selection-start-line="16" selection-start-column="69" selection-end-line="16" selection-end-column="69" />
+            <state relative-caret-position="210">
+              <caret line="14" column="104" lean-forward="true" selection-start-line="14" selection-start-column="64" selection-end-line="14" selection-end-column="104" />
             </state>
           </provider>
         </entry>
@@ -114,8 +111,8 @@
       <find>domain</find>
       <find>localhost</find>
       <find>&quot;localhost&quot;</find>
-      <find>&quot;http&quot;</find>
       <find>$DOMAIN</find>
+      <find>&quot;http&quot;</find>
     </findStrings>
     <replaceStrings>
       <replace>$PROJECT_DIR$/../../taiga/taiga-back/</replace>
@@ -132,8 +129,8 @@
         <option value="$PROJECT_DIR$/taiga-front-dist.conf" />
         <option value="$PROJECT_DIR$/startup.toml" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/prepare_taiga.sh" />
         <option value="$PROJECT_DIR$/flist.sh" />
+        <option value="$PROJECT_DIR$/prepare_taiga.sh" />
       </list>
     </option>
   </component>
@@ -236,20 +233,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prepare_taiga.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="69" selection-start-line="16" selection-start-column="69" selection-end-line="16" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/taiga-front-dist.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="44" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/startup.toml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="372">
@@ -261,6 +244,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
           <caret line="35" column="38" lean-forward="true" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taiga-front-dist.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="44" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prepare_taiga.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="104" lean-forward="true" selection-start-line="14" selection-start-column="64" selection-end-line="14" selection-end-column="104" />
         </state>
       </provider>
     </entry>
