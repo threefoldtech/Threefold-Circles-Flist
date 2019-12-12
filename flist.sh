@@ -14,6 +14,13 @@ apt-get install -y python3 python3-pip python3-dev virtualenvwrapper
 apt-get install -y libxml2-dev libxslt-dev
 apt-get install -y libssl-dev libffi-dev
 apt-get install -y sudo openssh-server virtualenv python-pip vim
+# install latest restic
+git clone https://github.com/restic/restic
+cd restic
+go run build.go
+cp -p restic /usr/bin/restic
+rm -rf restic
+
 adduser taiga
 adduser taiga sudo
 passwd -d taiga
