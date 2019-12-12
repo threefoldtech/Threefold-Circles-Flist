@@ -32,8 +32,8 @@ import os
 
 MEDIA_URL = "http://localhost/media/"
 STATIC_URL = "http://localhost/static/"
-SITES["front"]["scheme"] = "http"
-SITES["front"]["domain"] = "localhost"
+SITES["front"]["scheme"] = 'http'
+SITES["front"]["domain"] = 'localhost'
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 
