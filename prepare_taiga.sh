@@ -3,14 +3,11 @@ set -x
 
 echo "checking env variables was set correctly "
 
-for var in SECRET_KEY EMAIL_HOST EMAIL_HOST_USER EMAIL_HOST_PASSWORD HOST_IP HTTP_PORT
-    do
-        value=$var
-        if [[ -z "$value" ]] ;then
-            echo "$value was not set, Please set it in creating your container"
-            exit 1
-        fi
-    done
+if [[ -z "$SECRET_KEY" ]] || [[ -z "$EMAIL_HOST" ]] || [[ -z "$EMAIL_HOST_USER" ]] || [[ -z "$EMAIL_HOST_PASSWORD" ]] || [[ -z "$HOST_IP" ]] || [[ -z "$HTTP_PORT" ]] ; then
+    echo " one of below variables are not set yet, Please set it in creating your container"
+    ehco "SECRET_KEY EMAIL_HOST EMAIL_HOST_USER EMAIL_HOST_PASSWORD HOST_IP HTTP_PORT"
+    exit 1
+fi
 
 # Install dependencies and populate database
 cd /home/taiga/taiga-back
