@@ -9,6 +9,7 @@ for var in SECRET_KEY EMAIL_HOST EMAIL_HOST_USER EMAIL_HOST_PASSWORD HOST_IP HTT
             echo "$var was not set, Please set it in creating your container"
             exit 1
         fi
+    done
 
 echo all env variables are set
 
