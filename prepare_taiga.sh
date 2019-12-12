@@ -1,5 +1,17 @@
 #!/usr/bin/env bash
 set -x
+
+echo "checking env variables was set correctly "
+
+for var in SECRET_KEY EMAIL_HOST EMAIL_HOST_USER EMAIL_HOST_PASSWORD HOST_IP HTTP_PORT
+    do
+        if [[ -z "$var" ]] ;then
+            echo "$var was not set, Please set it in creating your container"
+            exit 1
+        fi
+
+echo all env variables are set
+
 # Install dependencies and populate database
 cd /home/taiga/taiga-back
 virtualenv -p /usr/bin/python3 taiga
@@ -9,6 +21,7 @@ virtualenv -p /usr/bin/python3 taiga
 /home/taiga/taiga-back/taiga/bin/python3 manage.py loaddata initial_project_templates
 /home/taiga/taiga-back/taiga/bin/python3 manage.py compilemessages
 /home/taiga/taiga-back/taiga/bin/python3 manage.py collectstatic --noinput
+
 
 
 # edit backend
