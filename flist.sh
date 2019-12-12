@@ -21,7 +21,7 @@ go run build.go
 cp -p restic /usr/bin/restic
 rm -rf restic
 
-adduser taiga/etc/nginx/conf.d/taiga.conf
+adduser taiga
 adduser taiga sudo
 passwd -d taiga
 
