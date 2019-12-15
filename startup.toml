@@ -111,7 +111,7 @@ media_directory='/home/taiga/taiga-back/media'
 date=`date +%d%m%y%H%M`
 
 #Database backup
-su - taiga -c 'pg_dump -U taiga -c taiga > $bkp_directory/db-bkp-$date-dump.sql'
+su - taiga -c \"pg_dump -U taiga -c taiga > $bkp_directory/db-bkp-$date-dump.sql\"
 
 #File system backup
 zip -r $bkp_directory/app-bkp-$date.zip $media_directory >> /dev/null 3>&1
