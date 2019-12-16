@@ -33,7 +33,11 @@ chmod 640 /etc/ssl/private/ssl-cert-snakeoil.key
 chown postgres:ssl-cert /etc/ssl/private
 chown -R postgres /var/run/postgresql
 chown -R postgres.postgres /etc/postgresql
+echo 'check data dir'
+ls -l /var/lib/postgresql
 find /var/lib/postgresql -maxdepth 0 -empty -exec pg_createcluster 10 main \\;
+echo 'data dir after run initaitin'
+ls -l /var/lib/postgresql
 """
 
 [startup.setup]
@@ -84,7 +88,7 @@ service nginx start
 [startup.taigaBack]
 name = "bash"
 after = ["setup"]
-protected = true
+#protected = true
 
 [startup.taigaBack.args]
 script = """
@@ -95,7 +99,7 @@ su taiga -c 'cd /home/taiga/taiga-back ; /home/taiga/taiga-back/taiga/bin/gunico
 [startup.taigaEvents]
 name = "bash"
 after = ["setup"]
-protected = true
+#protected = true
 
 [startup.taigaEvents.args]
 
