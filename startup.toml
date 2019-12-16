@@ -18,6 +18,10 @@ protected = true
 name = "/usr/sbin/sshd"
 args = ["-e", "-D"]
 
+[startup.postgres_init]
+name = "bash"
+after = ["sshd"]
+
 [startup.postgres_init.args]
 script = """
 chown -R postgres.postgres /var/lib/postgresql/
@@ -30,12 +34,6 @@ chown -R postgres /var/run/postgresql
 chown -R postgres.postgres /etc/postgresql
 find /var/lib/postgresql/10/main -maxdepth 0 -empty -exec sudo -u postgres initlocation /var/lib/postgresql/10/main \\;
 """
-
-[startup.mysql]
-name = "core.system"
-after = ["sshd"]
-protected = true
-
 
 [startup.setup]
 name = "bash"
