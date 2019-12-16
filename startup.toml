@@ -33,7 +33,7 @@ chmod 640 /etc/ssl/private/ssl-cert-snakeoil.key
 chown postgres:ssl-cert /etc/ssl/private
 chown -R postgres /var/run/postgresql
 chown -R postgres.postgres /etc/postgresql
-find /var/lib/postgresql/10/main -maxdepth 0 -empty -exec pg_createcluster 10 main \\;
+find /var/lib/postgresql -maxdepth 0 -empty -exec pg_createcluster 10 main \\;
 """
 
 [startup.setup]
