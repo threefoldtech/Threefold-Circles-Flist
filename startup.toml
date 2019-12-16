@@ -65,9 +65,9 @@ service postgresql start
 sudo -u postgres createuser taiga
 sudo -u postgres createdb taiga -O taiga --encoding='utf-8' --locale=en_US.utf8 --template=template0
 
-# Install dependencies and populate database
+# add logs dir for taiga logs
+[ -d  /home/taiga/logs ] || mkdir -p /home/taiga/logs
 chown -R taiga:taiga /home/taiga
-cd /home/taiga/taiga-back
 
 # taiga prepare script
 echo  starting taiga prepare script
@@ -77,6 +77,7 @@ sudo chmod +x /.prepare_taiga.sh
 su taiga -c 'bash /.prepare_taiga.sh'
 
 sed -i \"s/listen 80 default_server/listen $HTTP_PORT default_server/g\" /etc/nginx/conf.d/taiga.conf
+sudo nginx -t
 
 # Start rabbitmq-server and create user+vhost
 chown -R rabbitmq:rabbitmq /etc/rabbitmq
@@ -89,7 +90,6 @@ rabbitmqctl set_permissions -p taiga taiga '.*' '.*' '.*'
 
 service nginx start
 
-# start startup script and start it
 """
 
 [startup.taigaBack]

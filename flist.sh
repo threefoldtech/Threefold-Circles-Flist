@@ -27,8 +27,6 @@ rm /etc/nginx/sites-enabled/default
 nginx_file='/etc/nginx/conf.d/taiga.conf'
 wget https://raw.githubusercontent.com/threefoldtech/Threefold-Circles-Flist/master/nginx_conf -O ${nginx_file}
 wget https://raw.githubusercontent.com/threefoldtech/Threefold-Circles-Flist/master/startup.toml -O /.startup.toml
-sudo nginx -t
-
 
 tar -cpzf "/root/archives/circles.tar.gz" --exclude dev --exclude sys --exclude proc --exclude /root/archives/ /
 

@@ -51,8 +51,7 @@ if [ ! -d /home/taiga/taiga-events ]; then
     && sudo apt-get install -y nodejs \
     && npm install \
     && cp config.example.json config.json
-    # add logs dir for taiga logs
-    mkdir -p /home/taiga/logs
+
 
 else
     echo taiga-events is already exist
