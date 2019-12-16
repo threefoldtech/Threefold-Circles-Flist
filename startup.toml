@@ -33,11 +33,7 @@ chmod 640 /etc/ssl/private/ssl-cert-snakeoil.key
 chown postgres:ssl-cert /etc/ssl/private
 chown -R postgres /var/run/postgresql
 chown -R postgres.postgres /etc/postgresql
-echo 'check data dir'
-ls -l /var/lib/postgresql
 find /var/lib/postgresql -maxdepth 0 -empty -exec sh -c 'pg_dropcluster 10 main && pg_createcluster 10 main' \\;
-echo 'data dir after run initaitin'
-ls -l /var/lib/postgresql
 """
 
 [startup.setup]
@@ -59,6 +55,12 @@ cat /etc/resolv.conf
 sed -i '/^nameserver 10./d' /etc/resolv.conf
 locale-gen en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+
+# taiga setup script
+echo starting taiga setup script
+wget https://raw.githubusercontent.com/threefoldtech/Threefold-Circles-Flist/master/setup_taiga.sh -O /.setup_taiga.sh
+bash /.setup_taiga.sh
+
 service postgresql start
 sudo -u postgres createuser taiga
 sudo -u postgres createdb taiga -O taiga --encoding='utf-8' --locale=en_US.utf8 --template=template0
@@ -66,8 +68,13 @@ sudo -u postgres createdb taiga -O taiga --encoding='utf-8' --locale=en_US.utf8 
 # Install dependencies and populate database
 chown -R taiga:taiga /home/taiga
 cd /home/taiga/taiga-back
-sudo chmod +x /opt/bin/prepare_taiga.sh
-su taiga -c 'bash /opt/bin/prepare_taiga.sh'
+
+# taiga prepare script
+echo  starting taiga prepare script
+prepare_taiga_file='/.prepare_taiga.sh'
+wget https://raw.githubusercontent.com/threefoldtech/Threefold-Circles-Flist/master/prepare_taiga.sh -O ${prepare_taiga_file}
+sudo chmod +x /.prepare_taiga.sh
+su taiga -c 'bash /.prepare_taiga.sh'
 
 sed -i \"s/listen 80 default_server/listen $HTTP_PORT default_server/g\" /etc/nginx/conf.d/taiga.conf
 
