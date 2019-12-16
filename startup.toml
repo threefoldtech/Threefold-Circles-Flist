@@ -35,7 +35,7 @@ chown -R postgres /var/run/postgresql
 chown -R postgres.postgres /etc/postgresql
 echo 'check data dir'
 ls -l /var/lib/postgresql
-find /var/lib/postgresql -maxdepth 0 -empty -exec pg_createcluster 10 main \\;
+find /var/lib/postgresql -maxdepth 0 -empty -exec sh -c 'pg_dropcluster 10 main && pg_createcluster 10 main' \\;
 echo 'data dir after run initaitin'
 ls -l /var/lib/postgresql
 """
