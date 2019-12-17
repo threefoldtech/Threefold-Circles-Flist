@@ -9,14 +9,12 @@ else
     passwd -d taiga
 fi
 
-if [ ! -d /home/taiga/taiga-back ] ; then
+if [[ ! -d /home/taiga/taiga-back ]] ; then
     cd /home/taiga
     git clone https://github.com/threefoldtech/Threefold-Circles.git taiga-back
     cd taiga-back
     git checkout production
-
     su taiga && cd /home/taiga && sudo virtualenv -p /usr/bin/python3 taiga
-
     local_file='/home/taiga/taiga-back/settings/local.py'
     wget https://raw.githubusercontent.com/threefoldtech/Threefold-Circles-Flist/master/local.py -O $local_file
 else
@@ -24,7 +22,7 @@ else
 
 fi
 
-if [ ! -d /home/taiga/taiga-front-dist ] ; then
+if [[ ! -d /home/taiga/taiga-front-dist ]] ; then
     cd /home/taiga
     git clone https://github.com/threefoldtech/Threefold-Circles-front-dist.git taiga-front-dist
     cd taiga-front-dist
@@ -40,18 +38,18 @@ else
 fi
 # Events installation
 
-if [ ! -d /home/taiga/taiga-events ]; then
+if [[ ! -d /home/taiga/taiga-events ]]; then
     cd /home/taiga
     git clone https://github.com/threefoldtech/Threefold-Circles-events.git taiga-events
     su taiga \
     && cd taiga-events \
     && git checkout master \
-    && git pull \
-    && curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - \
-    && npm install \
-    && cp config.example.json config.json
-
+    && git pull
 
 else
     echo taiga-events is already exist
 fi
+# complete events installation
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - \
+&& npm install \
+&& cp config.example.json config.json
