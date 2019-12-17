@@ -50,6 +50,8 @@ else
     echo taiga-events is already exist
 fi
 # complete events installation
-curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - \
+su taiga \
+cd /home/taiga/taiga-events \
+&& curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - \
 && npm install \
 && cp config.example.json config.json
