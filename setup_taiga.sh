@@ -52,4 +52,5 @@ fi
 # complete events installation
 su taiga \
 && cd /home/taiga/taiga-events \
+&& npm install \
 && cp config.example.json config.json
