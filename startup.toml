@@ -58,10 +58,6 @@ echo starting taiga setup script
 wget https://raw.githubusercontent.com/threefoldtech/Threefold-Circles-Flist/master/setup_taiga.sh -O /.setup_taiga.sh
 bash /.setup_taiga.sh
 
-#sudo -u postgres createuser taiga
-su - postgres -c \"psql -t -c '\du' | cut -d \| -f 1 | grep -qw taiga && echo taiga user already exist || createuser taiga\"
-su - postgres -c \"psql -lqt | cut -d \| -f 1 | grep -qw  taiga && echo taiga database is already exist || createdb taiga -O taiga --encoding='utf-8' --locale=en_US.utf8 --template=template0\"
-
 # add logs dir for taiga logs
 [ -d  /home/taiga/logs ] || mkdir -p /home/taiga/logs
 chown -R taiga:taiga /home/taiga

@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 set -ex
 
+# create a database user and taiga database 
+#sudo -u postgres createuser taiga
+su - postgres -c "psql -t -c '\du' | cut -d \| -f 1 | grep -qw taiga && echo taiga user already exist || createuser taiga"
+su - postgres -c "psql -lqt | cut -d \| -f 1 | grep -qw  taiga && echo taiga database is already exist || createdb taiga -O taiga --encoding='utf-8' --locale=en_US.utf8 --template=template0"
+
 if getent passwd taiga2; then
     echo username taiga is already exist
 else
