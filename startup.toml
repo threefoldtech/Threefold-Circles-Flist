@@ -56,12 +56,14 @@ sed -i '/^nameserver 10./d' /etc/resolv.conf
 locale-gen en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+# start postgres
+service postgresql start
+
 # taiga setup script
 echo starting taiga setup script
 wget https://raw.githubusercontent.com/threefoldtech/Threefold-Circles-Flist/master/setup_taiga.sh -O /.setup_taiga.sh
 bash /.setup_taiga.sh
 
-service postgresql start
 sudo -u postgres createuser taiga
 sudo -u postgres createdb taiga -O taiga --encoding='utf-8' --locale=en_US.utf8 --template=template0
 
