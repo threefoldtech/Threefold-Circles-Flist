@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -x
+set -ex
 
 echo "checking env variables was set correctly "
 
@@ -8,6 +8,14 @@ if [[ -z "$SECRET_KEY" ]] || [[ -z "$EMAIL_HOST" ]] || [[ -z "$EMAIL_HOST_USER" 
     echo "SECRET_KEY EMAIL_HOST EMAIL_HOST_USER EMAIL_HOST_PASSWORD HOST_IP HTTP_PORT"
     exit 1
 fi
+
+# Install dependencies and populate database
+cd /home/taiga/taiga-back    
+/home/taiga/taiga-back/taiga/bin/python3 manage.py migrate --noinput
+/home/taiga/taiga-back/taiga/bin/python3 manage.py loaddata initial_user
+/home/taiga/taiga-back/taiga/bin/python3 manage.py loaddata initial_project_templates
+/home/taiga/taiga-back/taiga/bin/python3 manage.py compilemessages
+/home/taiga/taiga-back/taiga/bin/python3 manage.py collectstatic --noinput
 
 # edit backend
 sed -i "s|http://localhost/static/|https://$HOST_IP/static/|g"  /home/taiga/taiga-back/settings/local.py

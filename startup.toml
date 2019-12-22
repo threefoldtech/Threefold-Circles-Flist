@@ -43,7 +43,7 @@ after = ["postgres_init"]
 
 [startup.setup.args]
 script = """
-set -x
+set -ex
 sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
     locale-gen
 export HOME=/root

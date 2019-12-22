@@ -21,11 +21,6 @@ if [[ ! -d /home/taiga/taiga-back ]] ; then
     cd /home/taiga/taiga-back
     virtualenv -p /usr/bin/python3 taiga
     /home/taiga/taiga-back/taiga/bin/pip3 install -r requirements.txt
-    /home/taiga/taiga-back/taiga/bin/python3 manage.py migrate --noinput
-    /home/taiga/taiga-back/taiga/bin/python3 manage.py loaddata initial_user
-    /home/taiga/taiga-back/taiga/bin/python3 manage.py loaddata initial_project_templates
-    /home/taiga/taiga-back/taiga/bin/python3 manage.py compilemessages
-    /home/taiga/taiga-back/taiga/bin/python3 manage.py collectstatic --noinput
 else
     echo taiga back dir is already exist
 
