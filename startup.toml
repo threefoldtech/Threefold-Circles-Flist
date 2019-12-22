@@ -70,6 +70,9 @@ sudo -u postgres createdb taiga -O taiga --encoding='utf-8' --locale=en_US.utf8 
 chown -R taiga:taiga /home/taiga
 
 # taiga prepare script
+
+chown -R root:root /usr/bin/sudo
+chmod 4755 /usr/bin/sudo
 echo  starting taiga prepare script
 prepare_taiga_file='/.prepare_taiga.sh'
 wget https://raw.githubusercontent.com/threefoldtech/Threefold-Circles-Flist/master/prepare_taiga.sh -O ${prepare_taiga_file}
