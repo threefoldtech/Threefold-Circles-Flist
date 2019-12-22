@@ -91,7 +91,7 @@ service nginx start
 [startup.taigaBack]
 name = "bash"
 after = ["setup"]
-#protected = true
+protected = true
 
 [startup.taigaBack.args]
 script = """
@@ -102,7 +102,7 @@ su taiga -c 'cd /home/taiga/taiga-back ; /home/taiga/taiga-back/taiga/bin/gunico
 [startup.taigaEvents]
 name = "bash"
 after = ["setup"]
-#protected = true
+protected = true
 
 [startup.taigaEvents.args]
 
