@@ -10,7 +10,7 @@ if [[ -z "$SECRET_KEY" ]] || [[ -z "$EMAIL_HOST" ]] || [[ -z "$EMAIL_HOST_USER" 
 fi
 
 # Install dependencies and populate database
-cd /home/taiga/taiga-back    
+cd /home/taiga/taiga-back
 /home/taiga/taiga-back/taiga/bin/python3 manage.py migrate --noinput
 /home/taiga/taiga-back/taiga/bin/python3 manage.py loaddata initial_user
 /home/taiga/taiga-back/taiga/bin/python3 manage.py loaddata initial_project_templates

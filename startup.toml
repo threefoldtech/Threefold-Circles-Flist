@@ -44,12 +44,6 @@ after = ["postgres_init"]
 [startup.setup.args]
 script = """
 set -ex
-sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
-    locale-gen
-export HOME=/root
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
 echo 'remove a record was added by zos that make our server slow, below is resolv.conf file contents'
 cat /etc/resolv.conf
 sed -i '/^nameserver 10./d' /etc/resolv.conf
