@@ -13,7 +13,7 @@ if [[ ! -d /home/taiga/taiga-back ]] ; then
     cd /home/taiga
     git clone https://github.com/threefoldtech/Threefold-Circles.git taiga-back
     cd taiga-back
-    git checkout production
+    git checkout master
     su taiga && cd /home/taiga && sudo virtualenv -p /usr/bin/python3 taiga
     local_file='/home/taiga/taiga-back/settings/local.py'
     wget https://raw.githubusercontent.com/threefoldtech/Threefold-Circles-Flist/master/local.py -O $local_file
