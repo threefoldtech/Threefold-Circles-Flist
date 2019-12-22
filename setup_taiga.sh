@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -x
+set -ex
 
 if getent passwd taiga2; then
     echo username taiga is already exist
@@ -17,6 +17,15 @@ if [[ ! -d /home/taiga/taiga-back ]] ; then
     su taiga && cd /home/taiga && sudo virtualenv -p /usr/bin/python3 taiga
     local_file='/home/taiga/taiga-back/settings/local.py'
     wget https://raw.githubusercontent.com/threefoldtech/Threefold-Circles-Flist/master/local.py -O $local_file
+    # Install dependencies and populate database
+    cd /home/taiga/taiga-back
+    virtualenv -p /usr/bin/python3 taiga
+    /home/taiga/taiga-back/taiga/bin/pip3 install -r requirements.txt
+    /home/taiga/taiga-back/taiga/bin/python3 manage.py migrate --noinput
+    /home/taiga/taiga-back/taiga/bin/python3 manage.py loaddata initial_user
+    /home/taiga/taiga-back/taiga/bin/python3 manage.py loaddata initial_project_templates
+    /home/taiga/taiga-back/taiga/bin/python3 manage.py compilemessages
+    /home/taiga/taiga-back/taiga/bin/python3 manage.py collectstatic --noinput
 else
     echo taiga back dir is already exist
 
