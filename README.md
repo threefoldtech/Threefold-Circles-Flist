@@ -9,7 +9,7 @@ https://hub.grid.tf/tf-autobuilder/threefoldtech-Threefold-Circles-Flist-autosta
 
 - env variables are : SECRET_KEY , EMAIL_HOST, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, HOST_IP, HTTP_PORT=80
 
-- also you need configure restic env variables : RESTIC_REPOSITORY AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY RESTIC_PASSWORD="86lng11!"
+- also you need configure restic env variables : RESTIC_REPOSITORY AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY RESTIC_PASSWORD"
 
 
 ```
