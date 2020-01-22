@@ -24,10 +24,15 @@ sed -i "s|http://localhost/static/|https://$HOST_IP/static/|g"  /home/taiga/taig
 sed -i "s|http://localhost/media/|https://$HOST_IP/media/|g" /home/taiga/taiga-back/settings/local.py
 sed -i "s|'localhost'|\"$HOST_IP\"|g" /home/taiga/taiga-back/settings/local.py
 sed -i "s|'http'|'https'|g" /home/taiga/taiga-back/settings/local.py
+sed -i "s|smtp_email_host|$EMAIL_HOST|g" /home/taiga/taiga-back/settings/local.py
+sed -i "s|email_user|$EMAIL_HOST_USER|g" /home/taiga/taiga-back/settings/local.py
+sed -i "s|email_password|$EMAIL_HOST_PASSWORD|g" /home/taiga/taiga-back/settings/local.py
+sed -i "s|your_sceret_key|$SECRET_KEY|g" /home/taiga/taiga-back/settings/local.py
+
 
 # Edit conf files for frontend
 sed -i "s|circles.threefold.me|$HOST_IP|g" /home/taiga/taiga-front-dist/dist/conf.json
 
 # Edit config.json for events
-sed -i "s/guest:guest/taiga:$SECRET_KEY/g" /home/taiga/taiga-events/config.json
+sed -i "s|"amqp://guest:guest@localhost:5672"|"amqp://taiga:$SECRET_KEY@localhost:5672/taiga"/g" /home/taiga/taiga-events/config.json
 sed -i "s/mysecret/$SECRET_KEY/g" /home/taiga/taiga-events/config.json
