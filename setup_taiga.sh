@@ -27,7 +27,9 @@ if [[ ! -d /home/taiga/taiga-back ]] ; then
  #   virtualenv -p /usr/bin/python3 taiga
  #   /home/taiga/taiga-back/taiga/bin/pip3 install -r requirements.txt
 else
-    echo taiga back dir is already exist
+    echo taiga back dir is already exist, updating taiga-back repo now
+    cd /home/taiga/taiga-back
+    git pull
 
 fi
 
@@ -42,7 +44,9 @@ if [[ ! -d /home/taiga/taiga-front-dist ]] ; then
     wget https://raw.githubusercontent.com/threefoldtech/Threefold-Circles-Flist/master/taiga-front-dist.conf -O $taiga_front_conf
 
 else
-    echo taiga_front-dist is already exist
+    echo taiga_front-dist is already exist, updating taiga-front repo now
+    cd /home/taiga/taiga-front-dist
+    git pull
 
 fi
 # Events installation
@@ -56,7 +60,9 @@ if [[ ! -d /home/taiga/taiga-events ]]; then
     && git pull
 
 else
-    echo taiga-events is already exist
+    echo taiga-events is already exist, updating taiga-event repo
+    cd /home/taiga/taiga-events
+    git pull
 fi
 # complete events installation
 su taiga \
