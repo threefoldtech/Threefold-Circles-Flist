@@ -30,3 +30,7 @@ EMAIL_PORT = 587
 # for enable github login/singin.
 # GITHUB_API_CLIENT_ID = "yourgithubclientid"
 # GITHUB_API_CLIENT_SECRET = "yourgithubclientsecret"
+# threebot login parameters
+PRIVATE_KEY = os.environ['PRIVATE_KEY']
+THREEBOT_URL = os.environ['THREEBOT_URL']
+OPEN_KYC_URL = os.environ['OPEN_KYC_URL']
