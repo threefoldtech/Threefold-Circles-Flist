@@ -50,6 +50,12 @@ sed -i '/^nameserver 10./d' /etc/resolv.conf
 locale-gen en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+# set threebot paramater from env varaibles
+echo \"PRIVATE_KEY=$PRIVATE_KEY\" >> /etc/environment
+echo \"THREEBOT_URL=$THREEBOT_URL\" >> /etc/environment
+echo \"OPEN_KYC_URL=$OPEN_KYC_URL\" >> /etc/environment
+
+
 # start postgres
 service postgresql start
 
