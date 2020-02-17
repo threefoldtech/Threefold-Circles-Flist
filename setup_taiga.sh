@@ -29,6 +29,7 @@ if [[ ! -d /home/taiga/taiga-back ]] ; then
 else
     echo taiga back dir is already exist, updating taiga-back repo now
     cd /home/taiga/taiga-back
+    git stash
     git pull
 
 fi
@@ -39,14 +40,15 @@ if [[ ! -d /home/taiga/taiga-front-dist ]] ; then
     cd taiga-front-dist
     git checkout production
     git pull
-
     taiga_front_conf='/home/taiga/taiga-front-dist/dist/conf.json'
     wget https://raw.githubusercontent.com/threefoldtech/Threefold-Circles-Flist/master/taiga-front-dist.conf -O $taiga_front_conf
 
 else
     echo taiga_front-dist is already exist, updating taiga-front repo now
     cd /home/taiga/taiga-front-dist
+    git stash
     git pull
+
 
 fi
 # Events installation
@@ -62,6 +64,7 @@ if [[ ! -d /home/taiga/taiga-events ]]; then
 else
     echo taiga-events is already exist, updating taiga-event repo
     cd /home/taiga/taiga-events
+    git stash
     git pull
 fi
 # complete events installation
